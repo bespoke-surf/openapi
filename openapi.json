@@ -64,11 +64,11 @@
             "schema": { "default": "2023-06-01", "type": "string" }
           },
           {
-            "name": "page",
+            "name": "offset",
             "required": false,
             "in": "query",
-            "example": 1,
-            "description": "For more information please visit https://bespoke-api.readme.io/2023-06-01/reference/api-overview#pagination",
+            "example": 0,
+            "description": "For more information please visit https://bespoke-api.readme.io/2023-06-01/reference/pagination",
             "schema": { "type": "number" }
           },
           {
@@ -76,7 +76,7 @@
             "required": false,
             "in": "query",
             "example": 100,
-            "description": "For more information please visit https://bespoke-api.readme.io/2023-06-01/reference/api-overview#pagination",
+            "description": "For more information please visit https://bespoke-api.readme.io/2023-06-01/reference/pagination",
             "schema": { "type": "number" }
           }
         ],
@@ -226,6 +226,47 @@
         "tags": ["Subscriber"]
       }
     },
+    "/api/subscriber/count": {
+      "get": {
+        "operationId": "getSubscriberCount",
+        "summary": "Get Subscribers Count",
+        "description": "Get total count of subscribers.<br><br>*Rate limit*:<br>Limit: 150<br>TTL: 60s\n\n**Scopes:**\n`subscriber:read`",
+        "parameters": [
+          {
+            "name": "revision",
+            "in": "header",
+            "description": "API endpoint revision (format: YYYY-MM-DD[.suffix])",
+            "required": true,
+            "schema": { "default": "2023-06-01", "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get Subscribers Count",
+            "content": {
+              "application/json": { "schema": { "type": "number" } }
+            }
+          },
+          "5XX": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ExceptionResponse" }
+              }
+            }
+          },
+          "4XX": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ExceptionResponse" }
+              }
+            }
+          }
+        },
+        "tags": ["Subscriber"]
+      }
+    },
     "/api/subscriber/{subscriberId}/email-status": {
       "patch": {
         "operationId": "updateEmailStatus",
@@ -304,11 +345,11 @@
             "schema": { "default": "2023-06-01", "type": "string" }
           },
           {
-            "name": "page",
+            "name": "offset",
             "required": false,
             "in": "query",
-            "example": 1,
-            "description": "For more information please visit https://bespoke-api.readme.io/2023-06-01/reference/api-overview#pagination",
+            "example": 0,
+            "description": "For more information please visit https://bespoke-api.readme.io/2023-06-01/reference/pagination",
             "schema": { "type": "number" }
           },
           {
@@ -316,7 +357,7 @@
             "required": false,
             "in": "query",
             "example": 100,
-            "description": "For more information please visit https://bespoke-api.readme.io/2023-06-01/reference/api-overview#pagination",
+            "description": "For more information please visit https://bespoke-api.readme.io/2023-06-01/reference/pagination",
             "schema": { "type": "number" }
           },
           {
@@ -703,6 +744,47 @@
         "tags": ["List"]
       }
     },
+    "/api/list/count": {
+      "get": {
+        "operationId": "getListCount",
+        "summary": "Get List Count",
+        "description": "Get the total count of lists.<br><br>*Rate limit*:<br>Limit: 150<br>TTL: 60s\n\n**Scopes:**\n`list:read`",
+        "parameters": [
+          {
+            "name": "revision",
+            "in": "header",
+            "description": "API endpoint revision (format: YYYY-MM-DD[.suffix])",
+            "required": true,
+            "schema": { "default": "2023-06-01", "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get List Count",
+            "content": {
+              "application/json": { "schema": { "type": "number" } }
+            }
+          },
+          "5XX": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ExceptionResponse" }
+              }
+            }
+          },
+          "4XX": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ExceptionResponse" }
+              }
+            }
+          }
+        },
+        "tags": ["List"]
+      }
+    },
     "/api/list": {
       "get": {
         "operationId": "getLists",
@@ -717,11 +799,11 @@
             "schema": { "default": "2023-06-01", "type": "string" }
           },
           {
-            "name": "page",
+            "name": "offset",
             "required": false,
             "in": "query",
-            "example": 1,
-            "description": "For more information please visit https://bespoke-api.readme.io/2023-06-01/reference/api-overview#pagination",
+            "example": 0,
+            "description": "For more information please visit https://bespoke-api.readme.io/2023-06-01/reference/pagination",
             "schema": { "type": "number" }
           },
           {
@@ -729,7 +811,7 @@
             "required": false,
             "in": "query",
             "example": 100,
-            "description": "For more information please visit https://bespoke-api.readme.io/2023-06-01/reference/api-overview#pagination",
+            "description": "For more information please visit https://bespoke-api.readme.io/2023-06-01/reference/pagination",
             "schema": { "type": "number" }
           }
         ],
@@ -828,11 +910,11 @@
             "schema": { "default": "2023-06-01", "type": "string" }
           },
           {
-            "name": "page",
+            "name": "offset",
             "required": false,
             "in": "query",
-            "example": 1,
-            "description": "For more information please visit https://bespoke-api.readme.io/2023-06-01/reference/api-overview#pagination",
+            "example": 0,
+            "description": "For more information please visit https://bespoke-api.readme.io/2023-06-01/reference/pagination#pagination",
             "schema": { "type": "number" }
           },
           {
@@ -840,7 +922,7 @@
             "required": false,
             "in": "query",
             "example": 100,
-            "description": "For more information please visit https://bespoke-api.readme.io/2023-06-01/reference/api-overview#pagination",
+            "description": "For more information please visit https://bespoke-api.readme.io/2023-06-01/reference/pagination#pagination",
             "schema": { "type": "number" }
           },
           {
@@ -862,6 +944,58 @@
               "application/json": {
                 "schema": { "$ref": "#/components/schemas/SubscriberList" }
               }
+            }
+          },
+          "5XX": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ExceptionResponse" }
+              }
+            }
+          },
+          "4XX": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ExceptionResponse" }
+              }
+            }
+          }
+        },
+        "tags": ["List"]
+      }
+    },
+    "/api/list/{listId}/subscriber/count": {
+      "get": {
+        "operationId": "getListSubscribersCount",
+        "summary": "Get List Subscribers Count",
+        "description": "Get total count of subscribers within a list with the given list ID.<br><br>*Rate limit*:<br>Limit: 150<br>TTL: 60s\n\n**Scopes:**\n`list:read`",
+        "parameters": [
+          {
+            "name": "revision",
+            "in": "header",
+            "description": "API endpoint revision (format: YYYY-MM-DD[.suffix])",
+            "required": true,
+            "schema": { "default": "2023-06-01", "type": "string" }
+          },
+          {
+            "name": "listId",
+            "required": true,
+            "in": "path",
+            "description": "Primary key that uniquely identifies this subscriber. Generated by Bespoke.",
+            "schema": {
+              "description": "Primary key that uniquely identifies this subscriber. Generated by Bespoke.",
+              "type": "string",
+              "example": "UUID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get List Subscribers Count",
+            "content": {
+              "application/json": { "schema": { "type": "number" } }
             }
           },
           "5XX": {
