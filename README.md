@@ -1,4 +1,4 @@
-# Besplo's OpenAPI Specification
+# Bespoke's OpenAPI Specification
 
 This repo contains versioned copies of our [OpenAPI spec](https://www.openapis.org/).
 
